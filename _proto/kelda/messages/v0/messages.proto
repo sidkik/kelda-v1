@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package kelda.messages.v0;
+
+option go_package = "github.com/kelda-inc/kelda/pkg/proto/messages";
+
+// Message is a generic container for text messages to be sent
+// from server to client.
+message Message {
+    string text = 1;
+    enum mtype {
+        WARNING = 0;
+    }
+    mtype type = 2;
+}

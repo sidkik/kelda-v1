@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+package kelda.dev.v0;
+
+import "google/protobuf/timestamp.proto";
+import "kelda/errors/v0/errors.proto";
+
+option go_package = "github.com/kelda-inc/kelda/pkg/proto/dev";
+
+service Dev {
+  // SetTargetVersion sets the service's expected code version.
+  rpc SetTargetVersion(SetTargetVersionRequest) returns (SetTargetVersionResponse) {}
+
+  // GetMirrorSnapshot returns the files that are currently mirrored in the
+  // container.
+  rpc GetMirrorSnapshot(GetMirrorSnapshotRequest) returns (GetMirrorSnapshotResponse) {}
+
+  // Mirror creates or updates the file mirror for the given file. The file
+  // contents are streamed in chunks.
+  rpc Mirror(stream MirrorFileRequest) returns (MirrorFileResponse) {}
+
+  // Remove removes a file mirror (e.g. if a file is deleted from the local
+  // machine).
+  rpc Remove(RemoveFileRequest) returns (RemoveFileResponse) {}
+
+  // SyncComplete notifies the dev server that the local machine has finished
+  // updating the mirror files, and that the server can start the second stage
+  // of the sync process.
+  rpc SyncComplete(SyncCompleteRequest) returns (SyncCompleteResponse) {}
+}
+
+message SetTargetVersionRequest {
+  Version version = 1;
+}
+
+message SetTargetVersionResponse {
+  kelda.errors.v0.Error error = 1;
+}
+
+message GetMirrorSnapshotRequest {}
+
+message GetMirrorSnapshotResponse {
+  MirrorSnapshot snapshot = 1;
+  kelda.errors.v0.Error error = 2;
+}
+
+  // This is the transport format for the sync.MirrorSnapshot type.
+message MirrorSnapshot {
+  map<string, MirrorFile> files = 1;
+}
+
+message MirrorFileRequest {
+  MirrorFile header = 1;
+  bytes chunk = 2;
+}
+
+message MirrorFileResponse {
+  kelda.errors.v0.Error error = 2;
+}
+
+message RemoveFileRequest {
+  string path = 1;
+}
+
+message RemoveFileResponse {}
+
+message SyncCompleteRequest {}
+
+message SyncCompleteResponse {
+  kelda.errors.v0.Error error = 1;
+}
+
+message Version {
+  string version = 1;
+  SyncConfig sync_config = 2;
+}
+
+message SyncConfig {
+  repeated SyncRule rules = 1;
+
+  // The main child command that gets run after every sync.
+  // This is a long-running process, such as `node src/index.js`.
+  repeated string on_sync_command = 2;
+
+  // An optional command that can be run before running the on_sync_command.
+  // This is a process that completes, and doesn't have to run before every
+  // restart of the on_sync_command.
+  // For Node, this is usually `npm install`.
+  repeated string on_init_command = 3;
+}
+
+// SyncRule represents how a file should be synced from the local machine into the
+// container. Files at `From` are copied to `To` except for files matching
+// `Except`, which are ignored in both the source and destination.
+message SyncRule {
+  string from = 1;
+  string to = 2;
+  repeated string except = 3;
+  bool trigger_init = 4;
+}
+
+// MirrorFile represents a local file that has been mirrored into the container.
+message MirrorFile {
+  string syncSourcePath = 1;
+
+  FileAttributes fileAttributes = 2;
+}
+
+message FileAttributes {
+    string contentsHash = 1;
+    uint32 mode = 2;
+    google.protobuf.Timestamp modTime = 3;
+}

@@ -1,0 +1,2 @@
+FROM nginx:alpine
+RUN echo "update test 2" > /usr/share/nginx/html/index.html

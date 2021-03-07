@@ -1,0 +1,8 @@
+comment: off
+ignore:
+  - "pkg/crd/client/**/*"
+  - "pkg/crd/apis/**/*"
+  - "pkg/proto/**/*"
+  - "ci/**/*"
+  - "**/mocks/**/*"
+  - "scripts/**/*"

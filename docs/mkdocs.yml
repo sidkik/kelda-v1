@@ -1,0 +1,49 @@
+site_name: 'Documentation'
+site_url: 'https://kelda.io/docs'
+docs_dir: 'user-docs'
+theme:
+  name: 'material'
+  custom_dir: 'custom-theme'
+  logo: 'assets/logo.svg'
+  favicon: 'assets/favicon.ico'
+nav:
+  - 'Welcome': 'index.md'
+  - "What Is Kelda: FAQ": 'what-is-kelda.md'
+  - "Experience Kelda in 3 Steps": 'experience-kelda/index.md'
+  - 'Quickstart': 'quickstart.md'
+  - 'Installing the Kelda CLI': 'installing-cli.md'
+  - 'Example Applications':
+    - 'Python (Polls)': 'example-apps/polls.md'
+    - 'Golang (Sock Shop)': 'example-apps/sock-shop.md'
+    - 'Node.js (Todo Manager)': 'example-apps/todo.md'
+  - 'Deploying Kelda to a Private Cluster':
+    - 'Instructions': 'deployment/index.md'
+    - 'Creating the Kubernetes Cluster': 'deployment/creating-cluster.md'
+  - 'Configuring Kelda':
+    - 'Overview': 'configuring-kelda/overview.md'
+    - 'Workspace Config':
+      - 'Overview': 'configuring-kelda/workspace/overview.md'
+      - 'Integrating With Templating Tools': 'configuring-kelda/workspace/templating-tools.md'
+      - 'Specifying Your Deployment YAML with Helm': 'configuring-kelda/workspace/helm.md'
+      - 'Updating Kubernetes YAML for Development': 'configuring-kelda/workspace/updating-kube-yaml-for-dev.md'
+      - 'Private Images': 'configuring-kelda/workspace/private-images.md'
+      - 'Persisting State with Volumes': 'configuring-kelda/workspace/volumes.md'
+      - 'Ignoring Files': 'configuring-kelda/workspace/ignoring-files.md'
+    - 'Sync Config':
+      - 'Overview': 'configuring-kelda/sync/overview.md'
+  - 'Reference':
+    - 'CLI': 'reference/cli.md'
+    - 'Configuration': 'reference/configuration.md'
+    - 'Architecture': 'reference/architecture.md'
+    - 'Compatibility': 'reference/compatibility.md'
+    - 'Upgrading Kelda': 'reference/upgrading.md'
+    - 'Run Code Locally with Telepresence (Experimental)': 'tutorials/telepresence/index.md'
+  - 'Troubleshooting Common Issues': 'common-issues.md'
+  - 'Release Notes': 'release-notes.md'
+markdown_extensions:
+  - admonition
+  - attr_list
+  - meta
+  - pymdownx.details
+extra_css:
+  - css/custom-styles.css

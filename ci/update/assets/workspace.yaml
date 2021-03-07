@@ -1,0 +1,7 @@
+services:
+  - name: "test-update"
+
+tunnels:
+  - serviceName: test-update
+    localPort: 8081
+    remotePort: 80

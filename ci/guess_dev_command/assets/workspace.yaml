@@ -1,0 +1,7 @@
+services:
+  - name: web
+
+tunnels:
+  - serviceName: web
+    localPort: 3000
+    remotePort: 3000

@@ -1,0 +1,8 @@
+kelda.log
+*.cov
+coverage.txt
+local.mk
+venv
+.DS_Store
+# Intellij IDE files
+*.idea/

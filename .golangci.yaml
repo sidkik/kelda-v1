@@ -1,0 +1,35 @@
+run:
+  deadline: 3m
+  concurrency: 2
+  skip-dirs:
+    - vendor
+    - ci
+    - docs
+    - pkg/crd/client
+
+linters:
+  enable-all: true
+  disable:
+    - dogsled
+    - dupl
+    - errcheck
+    - funlen
+    - gochecknoglobals
+    - gocognit
+    - goconst
+    - gocyclo
+    - gosec
+    - interfacer
+    - maligned
+    - gomnd
+    - prealloc
+    - staticcheck
+    - unparam
+    - vetshadow
+    - whitespace
+    - wsl
+
+linters-settings:
+  gocritic:
+    disabled-checks:
+      - ifElseChain

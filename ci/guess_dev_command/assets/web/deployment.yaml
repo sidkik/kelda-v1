@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  template:
+    metadata:
+      labels:
+        service: web
+    spec:
+      containers:
+      # The image is ignored because it gets overriden in the service kelda.yaml.
+      - image: alpine
+        name: web

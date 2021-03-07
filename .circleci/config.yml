@@ -1,0 +1,254 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@1.0.2
+  slack: circleci/slack@3.2.0
+
+executors:
+  docker-executor:
+    docker:
+      - image: keldaio/circleci
+    working_directory: /go/src/github.com/kelda-inc/kelda
+
+jobs:
+  build:
+
+    executor: docker-executor
+
+    steps:
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - checkout
+      - run:
+          name: Build
+          command: make all
+      - run:
+          name: Lint
+          command: make lint
+      - run:
+          name: Docs
+          command: make build-docs
+      - run:
+          name: Build Integration Tests
+          command: go test -c -tags ci ./ci
+      - run:
+          name: Build License Generator
+          command: go build ./scripts/make-license
+      - run:
+          name: Build Analytics Downloader
+          command: go build ./scripts/download-analytics
+      - run:
+          name: Build Docker Container
+          command: make docker-build
+      - run:
+          name: Coverage
+          command: make coverage
+      - codecov/upload:
+          file: coverage.txt
+
+  push-docker-master:
+    executor: docker-executor
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Push Docker image
+          command: |
+            docker login gcr.io --username _json_key --password "${DOCKER_KEY}"
+            KELDA_VERSION=latest make docker-push
+
+  upload-fossa:
+    executor: docker-executor
+    steps:
+      - checkout
+      - run: fossa analyze
+
+  push-docker-tagged:
+    executor: docker-executor
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Push Docker image
+          command: |
+            docker login gcr.io --username _json_key --password "${DOCKER_KEY}"
+            KELDA_VERSION=${CIRCLE_TAG} make docker-push
+
+  upload-release:
+    executor: docker-executor
+    steps:
+      - checkout
+      - run:
+          name: Upload Release
+          command: ./scripts/upload_release.sh
+
+  setup-integration-tests:
+    parameters:
+      kubernetes_version:
+        type: string
+    executor: docker-executor
+    environment:
+      KELDA_LOG_VERBOSE: "true"
+    steps:
+      - checkout
+      - run:
+          name: Compile Kelda CLI
+          command: KELDA_VERSION=latest make install
+      - run:
+          name: Setup integration test environment
+          environment:
+            KUBERNETES_VERSION: << parameters.kubernetes_version >>
+          command: ./ci/scripts/setup_common.sh
+      - persist_to_workspace:
+          root: ~/.kube
+          paths:
+            - config
+      - run:
+          name: Setup CI cluster
+          environment:
+            CI_EXAMPLES_REPO_PATH: /tmp/examples
+          command: ./ci/scripts/setup_cluster.sh
+
+  run-upgrade-test:
+    parameters:
+      namespace:
+        type: string
+      kubernetes_version:
+        type: string
+    executor: docker-executor
+    steps:
+      - checkout
+      - run:
+          name: Compile Kelda CLI with fake versions
+          command: ./ci/scripts/setup_upgradecli.sh
+      - run:
+          name: Setup integration test environment
+          environment:
+            KUBERNETES_VERSION: << parameters.kubernetes_version >>
+          command: ./ci/scripts/setup_common.sh
+      - run:
+          name: Setup CI cluster
+          environment:
+            CI_EXAMPLES_REPO_PATH: /tmp/examples
+          command: ./ci/scripts/setup_cluster.sh
+      - run:
+          name: Setup the Kelda user config
+          environment:
+            CI_NAMESPACE: << parameters.namespace >>
+            CI_BACKWARDS_COMPAT: "false"
+            CI_EXAMPLES_REPO_PATH: /tmp/examples
+          command: ./ci/scripts/setup_user_config.sh
+      - run:
+          name: Upgrade test
+          command: go test -v -tags upgradetest ./ci/upgradecli
+
+  run-integration-tests:
+    parameters:
+      namespace:
+        type: string
+      backwards_compat:
+        type: string
+    executor: docker-executor
+    environment:
+      KELDA_LOG_VERBOSE: "true"
+      CI_NAMESPACE: << parameters.namespace >>
+      CI_BACKWARDS_COMPAT: << parameters.backwards_compat >>
+      CI_NO_DELETE_NAMESPACE: << parameters.backwards_compat >>
+      CI_EXAMPLES_REPO_PATH: /tmp/examples
+      CI_ROOT_PATH: /go/src/github.com/kelda-inc/kelda/ci
+    steps:
+      # Used by the `kelda update` integration test.
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: Compile Kelda CLI
+          command: KELDA_VERSION=latest make install
+      - attach_workspace:
+          at: ~/.kube
+      - run:
+          name: Setup integration test environment
+          command: ./ci/scripts/setup_common.sh
+      - run:
+          name: Setup the Kelda user config
+          command: ./ci/scripts/setup_user_config.sh
+      - run:
+          name: Integration test
+          command: go test -timeout 2h -v -tags ci ./ci
+
+          # Increase the no output timeout from 10 minutes since the tests have
+          # their own timeout of 10 minutes for waiting for containers to boot.
+          no_output_timeout: 15m
+      - run:
+          name: Create artifacts
+          command: ./ci/scripts/create_artifacts.sh
+          when: always
+      - store_artifacts:
+          path: /tmp/artifacts
+      - slack/status:
+          success_message: "$CIRCLE_JOB passed."
+          failure_message: "$CIRCLE_JOB failed. $SLACK_MENTIONS"
+          mentions: "channel"
+          include_project_field: false
+
+  delete-gce-cluster:
+    parameters:
+      kubernetes_version:
+        type: string
+    executor: docker-executor
+    steps:
+      - checkout
+      - run:
+          name: Delete the GCE cluster
+          command: ./ci/scripts/delete_gce_cluster.sh << parameters.kubernetes_version >>
+
+workflows:
+  version: 2
+
+  pr:
+    jobs:
+      - build
+
+  build-push-master:
+    jobs:
+      - build:
+          filters: # Required since `push-docker-master` depends on `build`.
+            branches:
+              only: master
+      - upload-fossa:
+          filters:
+            branches:
+              only: master
+      - push-docker-master:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+
+  build-push-tag:
+    jobs:
+      - build:
+          filters: # Required since `push-docker-tag` depends on `build`.
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
+      - push-docker-tagged:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
+      - upload-release:
+          requires:
+            - build
+            - push-docker-tagged
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/

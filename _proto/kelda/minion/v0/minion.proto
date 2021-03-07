@@ -1,0 +1,150 @@
+syntax = "proto3";
+
+package kelda.minion.v0;
+
+import "google/protobuf/timestamp.proto";
+import "kelda/errors/v0/errors.proto";
+import "kelda/messages/v0/messages.proto";
+
+option go_package = "github.com/kelda-inc/kelda/pkg/proto/minion";
+
+service Kelda {
+  rpc CreateWorkspace(CreateWorkspaceRequest) returns (CreateWorkspaceResponse) {}
+  rpc LogEvent(LogEventRequest) returns (LogEventResponse) {}
+  rpc GetLicense(GetLicenseRequest) returns (GetLicenseResponse) {}
+  rpc GetVersion(GetVersionRequest) returns (GetVersionResponse) {}
+  rpc GetUpdates(GetUpdatesRequest) returns (GetUpdatesResponse) {}
+  rpc PerformUpdates(PerformUpdatesRequest) returns (PerformUpdatesResponse) {}
+}
+
+message CreateWorkspaceRequest {
+  Workspace workspace = 1;
+}
+
+message CreateWorkspaceResponse {
+  kelda.errors.v0.Error error = 1;
+  repeated kelda.messages.v0.Message messages = 2;
+}
+
+message LogEventRequest {
+  Event event = 1;
+}
+
+message LogEventResponse {
+  kelda.errors.v0.Error error = 1;
+}
+
+message GetVersionRequest {}
+
+message GetVersionResponse {
+  KeldaVersion kelda_version = 1;
+  kelda.errors.v0.Error error = 2;
+}
+
+// This is how image update works in Kelda:
+//
+// At the time the workspace is created (when the user types `kelda dev`), the
+// minion server will retrieve all the digests of the images (not already
+// present) referenced by the manifests and write them to a field in the
+// MicroserviceSpec called ImageDigests. Afterwards, when the microservice is
+// being deployed, the controller will inject the digests from ImageDigests to
+// the actual PodSpecs, so the images being pulled by Kubernetes pods will be
+// fixed to what are specified in ImageDigests.
+//
+// When the user types `kelda update`, the CLI will make an RPC call,
+// GetUpdates, to the minion server. The minion server will again retrieve all
+// the digests, compare them to the ones in ImageDigests, and return any
+// difference to the user. If the user confirms the updates, the CLI will make
+// another RPC call, PerformUpdates, to the minion server, passing the same
+// structure returned by GetUpdates. The server will update the ImageDigests
+// with the new digests, and will trigger a redeploy in the microservice
+// controller.
+message GetUpdatesRequest {
+  string namespace = 1;
+}
+
+message GetUpdatesResponse {
+  repeated ServiceUpdate service_updates = 1;
+  kelda.errors.v0.Error error = 2;
+}
+
+message PerformUpdatesRequest {
+  string namespace = 1;
+  repeated ServiceUpdate service_updates = 2;
+}
+
+message PerformUpdatesResponse {
+  kelda.errors.v0.Error error = 1;
+}
+
+message ServiceUpdate {
+  string name = 1;
+  repeated ContainerUpdate container_updates = 2;
+}
+
+message ContainerUpdate {
+  string controller_name = 1;
+  string container_name = 2;
+  string old_digest = 3;
+  string new_digest = 4;
+  string image_url = 5;
+}
+
+// Workspace contains the main development environment configuration.
+message Workspace {
+  string namespace = 1;
+  repeated Service services = 2;
+  repeated Tunnel tunnels = 3;
+}
+
+// Tunnel defines a desired tunnel between a local port and a service in the
+// development environment.
+message Tunnel {
+  string service_name = 1;
+  uint32 local_port = 2;
+  uint32 remote_port = 3;
+}
+
+// Service contains the configuration required to boot a Microservice.
+message Service {
+  string name = 1;
+  repeated string manifests = 2;
+  bool dev_mode = 3;
+  string dev_image = 4;
+  // dev_command is no longer needed because it's handled in the sync config now.
+  // repeated string dev_command = 5;
+  reserved 5;
+}
+
+message Event {
+  google.protobuf.Timestamp time = 1;
+  string namespace = 2;
+  string event = 3;
+  string additional_json = 4;
+}
+
+message KeldaVersion {
+  string version = 1;
+}
+
+message GetLicenseRequest {}
+
+message GetLicenseResponse {
+  kelda.errors.v0.Error error = 1;
+  License license = 2;
+}
+
+message License {
+  LicenseTerms terms = 1;
+}
+
+message LicenseTerms {
+  string customer = 1;
+  enum LicenseType {
+    CUSTOMER = 0;
+    TRIAL = 1;
+  }
+  LicenseType type = 2;
+  int32 seats = 3;
+  google.protobuf.Timestamp expiryTime = 4;
+}

@@ -1,0 +1,256 @@
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../assets/HelveticaNeue-Bold.woff2') format('woff2'),
+        url('../assets/HelveticaNeue-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../assets/HelveticaNeue.woff2') format('woff2'),
+        url('../assets/HelveticaNeue.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+html {
+  background: #F8F8F8;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Helvetica Neue, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #011627;
+}
+
+.md-header,
+.md-footer {
+  background: url(../assets/navy-bg.jpg) 0 0;
+  background-size: 600px 527px;
+  box-shadow: none !important;
+}
+
+.md-header {
+  height: auto;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.md-header-nav__topic {
+  font-weight: bold;
+}
+
+.md-header .md-search__input {
+  background-color: hsla(0,0%,100%,.08);
+}
+
+.md-header .md-search__input:hover {
+  background-color: hsla(0,0%,100%,.12);
+}
+
+.md-nav__title:before {
+  color: white !important;
+}
+
+.md-logo {
+  margin: 0;
+}
+
+.md-header .btn-primary {
+  margin-top: 7px;
+  height: 36px;
+  font-size: 16px;
+  line-height: 15px;
+  font-weight: bold;
+  border: 2px solid #f8f8f8;
+  box-sizing: border-box;
+  padding-left: 16px;
+  padding-right: 16px;
+  -webkit-transition: color .2s, background .2s;
+  transition: color .2s, background .2s;
+  opacity: 1 !important;
+  min-width: 198px;
+}
+
+.md-header .btn-primary:hover {
+  background: #f8f8f8;
+  color: #011627;
+}
+
+@media only screen and (min-width: 60em) {
+  .md-header .btn-primary {
+    margin-left: -.6rem;
+  }
+}
+
+@media only screen and (min-width: 76.1876em) {
+  .md-logo img {
+    height: 100%;
+    width: auto;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@media only screen and (max-width: 76.1875em) {
+  .md-nav__title--site {
+    background: url(../assets/navy-bg.jpg) 0 0;
+    background-size: 600px 527px;
+    box-shadow: none !important;
+  }
+
+  .md-nav label:not(.md-nav__link) {
+    background: url(../assets/navy-bg.jpg) 0 0;
+    background-size: 600px 527px;
+    color: white !important;
+    font-weight: bold !important;
+  }
+}
+
+.md-nav__link {
+  display: inline-block;
+  color: #011627;
+  position: relative;
+  overflow: visible;
+}
+
+.md-nav__link--active {
+  font-weight: bold;
+}
+
+.md-nav__link--active:before,
+.md-nav__link:hover:before {
+  content: '';
+  position: absolute;
+  background: #FF9F1C;
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: .3 !important;
+  transition: all .2s ease-in;
+}
+
+.md-nav__link:hover {
+  color: #011627;
+}
+
+.md-nav__link--active:hover:before
+.md-nav__link:before {
+  left: -4px;
+  bottom: -4px;
+  width: calc(100% + 8px);
+  opacity: .5 !important;
+  transition: all .2s ease-in;
+}
+
+@media only screen and (max-width: 76.1875em) {
+  .md-nav {
+    background-color: transparent;
+  }
+}
+
+.md-container,
+.md-sidebar[data-md-state="lock"] {
+  padding-top: 88px;
+}
+
+.md-content {
+  padding-bottom: 104px;
+}
+
+.md-content a {
+  color: #011627;
+  position: relative;
+  font-weight: bold;
+}
+
+.md-content a:after {
+  content: '';
+  position: absolute;
+  background: #FF9F1C;
+  height: 4px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  opacity: .3;
+  z-index: -1;
+  transition: all .2s ease-in;
+}
+
+.md-content a:hover,
+.md-content a:focus {
+  color: #011627;
+}
+
+.md-content a:hover:after,
+.md-content a:focus:after {
+  bottom: -4px;
+  left: -4px;
+  width: calc(100% + 8px);
+  opacity: .5 !important;
+}
+
+.md-footer {
+  padding-top: 21px;
+  padding-bottom: 21px;
+}
+
+.md-footer-nav {
+  background: none;
+}
+
+.md-footer-meta {
+  display: none;
+}
+
+pre {
+  background: hsla(0,0%,92.5%,.9) !important;
+}
+
+
+/*typography*/
+
+.md-typeset h1 {
+  font-size: 64px;
+  line-height: 64px;
+  font-weight: bold;
+  color: #011627;
+}
+
+@media screen and (min-width: $desktop) {
+  .md-typeset h1 {
+    font-size: 104px;
+    line-height: 98px;
+  }
+}
+
+.md-typeset h2 {
+  font-weight: normal;
+  margin-top: 18px;
+  font-size: 20px;
+  line-height: 30px;
+  color: #011627;
+}
+
+@media screen and (min-width: $desktop) {
+  .md-typeset h2 {
+    font-size: 24px;
+    line-height: medium;
+  }
+}
+
+.md-typeset h3 {
+  font-size: 20px;
+  line-height: 28px;
+  color: #011627;
+}
+
+.md-typeset p {
+  font-size: 16px;
+  line-height: 30px;
+  color: #011627;
+}

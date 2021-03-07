@@ -1,0 +1,19 @@
+version: 2
+cli:
+  server: https://app.fossa.com
+  fetcher: custom
+  project: git@github.com:kelda-inc/kelda
+analyze:
+  modules:
+  - name: github.com/kelda-inc/kelda
+    type: go
+    target: github.com/kelda-inc/kelda
+    path: .
+  - name: github.com/kelda-inc/kelda/scripts/download-analytics
+    type: go
+    target: github.com/kelda-inc/kelda/scripts/download-analytics
+    path: scripts/download-analytics
+  - name: github.com/kelda-inc/kelda/scripts/make-license
+    type: go
+    target: github.com/kelda-inc/kelda/scripts/make-license
+    path: scripts/make-license

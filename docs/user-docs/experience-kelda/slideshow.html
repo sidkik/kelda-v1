@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/reveal-white.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section data-markdown="explore-slideshow.md.txt" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+			</div>
+		</div>
+		<script src="../js/reveal.js"></script>
+		<script>
+            Reveal.initialize({
+                controls: true,
+                controlsLayout: 'bottom-right',
+                slideNumber: true,
+                progress: true,
+                center: false,
+                dependencies: [
+					{ src: '../js/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../js/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				]
+            });
+		</script>
+	</body>
+</html>

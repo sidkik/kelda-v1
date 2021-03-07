@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sync-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: sync-test
+  template:
+    metadata:
+      labels:
+        name: sync-test
+    spec:
+      containers:
+      - image: alpine
+        name: sync-test
+        workingDir: /root

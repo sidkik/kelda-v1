@@ -1,0 +1,13 @@
+version: 'v1alpha1'
+name: 'web'
+image: 'casestack/node-service:10'
+initCommand: ['npm', 'ci']
+command: ['node', 'app.js']
+sync:
+  - from: '.'
+    to: '.'
+    except: ['node_modules', '.git']
+
+  - from: 'package-lock.json'
+    to: 'package-lock.json'
+    triggerInit: true
