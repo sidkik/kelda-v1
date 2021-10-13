@@ -8,14 +8,14 @@ import (
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/restmapper"
 
-	"github.com/kelda-inc/kelda/cmd/setup"
-	"github.com/kelda-inc/kelda/cmd/util"
-	"github.com/kelda-inc/kelda/pkg/analytics"
-	"github.com/kelda-inc/kelda/pkg/config"
-	keldaClientset "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned"
-	"github.com/kelda-inc/kelda/pkg/crd/controller/microservice"
-	"github.com/kelda-inc/kelda/pkg/errors"
-	minionServer "github.com/kelda-inc/kelda/pkg/minion/server"
+	"github.com/sidkik/kelda-v1/cmd/setup"
+	"github.com/sidkik/kelda-v1/cmd/util"
+	"github.com/sidkik/kelda-v1/pkg/analytics"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	keldaClientset "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned"
+	"github.com/sidkik/kelda-v1/pkg/crd/controller/microservice"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	minionServer "github.com/sidkik/kelda-v1/pkg/minion/server"
 )
 
 // New creates a new `minion` command.

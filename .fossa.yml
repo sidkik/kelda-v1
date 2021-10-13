@@ -5,15 +5,15 @@ cli:
   project: git@github.com:kelda-inc/kelda
 analyze:
   modules:
-  - name: github.com/kelda-inc/kelda
-    type: go
-    target: github.com/kelda-inc/kelda
-    path: .
-  - name: github.com/kelda-inc/kelda/scripts/download-analytics
-    type: go
-    target: github.com/kelda-inc/kelda/scripts/download-analytics
-    path: scripts/download-analytics
-  - name: github.com/kelda-inc/kelda/scripts/make-license
-    type: go
-    target: github.com/kelda-inc/kelda/scripts/make-license
-    path: scripts/make-license
+    - name: github.com/sidkik/kelda-v1
+      type: go
+      target: github.com/sidkik/kelda-v1
+      path: .
+    - name: github.com/sidkik/kelda-v1/scripts/download-analytics
+      type: go
+      target: github.com/sidkik/kelda-v1/scripts/download-analytics
+      path: scripts/download-analytics
+    - name: github.com/sidkik/kelda-v1/scripts/make-license
+      type: go
+      target: github.com/sidkik/kelda-v1/scripts/make-license
+      path: scripts/make-license

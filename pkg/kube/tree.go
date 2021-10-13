@@ -19,8 +19,8 @@ import (
 	batchlisters "k8s.io/client-go/listers/batch/v1"
 	corelisters "k8s.io/client-go/listers/core/v1"
 
-	"github.com/kelda-inc/kelda/pkg/crd/controller/microservice/annotations"
-	"github.com/kelda-inc/kelda/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/crd/controller/microservice/annotations"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 // TreeBuilder converts the Kubernetes objects in the namespace into a tree

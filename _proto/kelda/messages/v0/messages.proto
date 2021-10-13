@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package kelda.messages.v0;
 
-option go_package = "github.com/kelda-inc/kelda/pkg/proto/messages";
+option go_package = "github.com/sidkik/kelda-v1/pkg/proto/messages";
 
 // Message is a generic container for text messages to be sent
 // from server to client.

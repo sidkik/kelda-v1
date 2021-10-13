@@ -15,11 +15,11 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
 
-	"github.com/kelda-inc/kelda/pkg/config"
-	"github.com/kelda-inc/kelda/pkg/errors"
-	"github.com/kelda-inc/kelda/pkg/kube"
-	"github.com/kelda-inc/kelda/pkg/proto/messages"
-	"github.com/kelda-inc/kelda/pkg/proto/minion"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/kube"
+	"github.com/sidkik/kelda-v1/pkg/proto/messages"
+	"github.com/sidkik/kelda-v1/pkg/proto/minion"
 )
 
 const (

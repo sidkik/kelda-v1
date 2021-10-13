@@ -1,7 +1,7 @@
 FROM golang:1.11-alpine as builder
 RUN apk add make
 
-WORKDIR /go/src/github.com/kelda-inc/kelda
+WORKDIR /go/src/github.com/sidkik/kelda-v1
 
 ADD vendor vendor
 RUN CGO_ENABLED=0 go install -i ./vendor/...
@@ -15,5 +15,5 @@ FROM alpine
 # Add certificates needed to make HTTPS requests to S3.
 RUN apk add --no-cache ca-certificates
 
-COPY --from=builder /go/src/github.com/kelda-inc/kelda/kelda /bin/kelda
+COPY --from=builder /go/src/github.com/sidkik/kelda-v1/kelda /bin/kelda
 CMD ["kelda", "minion"]

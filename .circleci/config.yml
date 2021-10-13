@@ -8,11 +8,10 @@ executors:
   docker-executor:
     docker:
       - image: keldaio/circleci
-    working_directory: /go/src/github.com/kelda-inc/kelda
+    working_directory: /go/src/github.com/sidkik/kelda-v1
 
 jobs:
   build:
-
     executor: docker-executor
 
     steps:
@@ -157,7 +156,7 @@ jobs:
       CI_BACKWARDS_COMPAT: << parameters.backwards_compat >>
       CI_NO_DELETE_NAMESPACE: << parameters.backwards_compat >>
       CI_EXAMPLES_REPO_PATH: /tmp/examples
-      CI_ROOT_PATH: /go/src/github.com/kelda-inc/kelda/ci
+      CI_ROOT_PATH: /go/src/github.com/sidkik/kelda-v1/ci
     steps:
       # Used by the `kelda update` integration test.
       - setup_remote_docker

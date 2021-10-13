@@ -21,8 +21,8 @@ package v1alpha1
 import (
 	"time"
 
-	v1alpha1 "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
-	scheme "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned/scheme"
+	v1alpha1 "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
+	scheme "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned/scheme"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"

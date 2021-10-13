@@ -14,9 +14,9 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
 
-	"github.com/kelda-inc/kelda/pkg/errors"
-	"github.com/kelda-inc/kelda/pkg/proto/dev"
-	"github.com/kelda-inc/kelda/pkg/sync"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/proto/dev"
+	"github.com/sidkik/kelda-v1/pkg/sync"
 )
 
 // Client is the interface for syncing code from the local machine into a

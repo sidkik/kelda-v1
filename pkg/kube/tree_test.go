@@ -12,7 +12,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/types"
 
-	"github.com/kelda-inc/kelda/pkg/crd/controller/microservice/annotations"
+	"github.com/sidkik/kelda-v1/pkg/crd/controller/microservice/annotations"
 )
 
 func TestMakeTree(t *testing.T) {

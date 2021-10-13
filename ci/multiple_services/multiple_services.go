@@ -12,10 +12,10 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	keldaAssert "github.com/kelda-inc/kelda/ci/assert"
-	"github.com/kelda-inc/kelda/ci/examples"
-	"github.com/kelda-inc/kelda/ci/magda"
-	"github.com/kelda-inc/kelda/ci/util"
+	keldaAssert "github.com/sidkik/kelda-v1/ci/assert"
+	"github.com/sidkik/kelda-v1/ci/examples"
+	"github.com/sidkik/kelda-v1/ci/magda"
+	"github.com/sidkik/kelda-v1/ci/util"
 )
 
 func Test(t *testing.T, helper *util.TestHelper) {

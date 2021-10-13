@@ -19,7 +19,7 @@ limitations under the License.
 package fake
 
 import (
-	keldav1alpha1 "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
+	keldav1alpha1 "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"

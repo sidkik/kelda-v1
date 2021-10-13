@@ -5,7 +5,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	"github.com/kelda-inc/kelda/pkg/crd/apis/kelda"
+	"github.com/sidkik/kelda-v1/pkg/crd/apis/kelda"
 )
 
 // SchemeGroupVersion is group version used to register these objects.

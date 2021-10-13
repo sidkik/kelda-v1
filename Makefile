@@ -1,8 +1,8 @@
 UPGRADE_TOKEN?=upgrade
 KELDA_VERSION?=$(shell ./scripts/dev_version.sh)
-DOCKER_REPO = gcr.io/kelda-images
+DOCKER_REPO = 349410846786.dkr.ecr.us-west-2.amazonaws.com
 DOCKER_IMAGE = ${DOCKER_REPO}/kelda:${KELDA_VERSION}
-LD_FLAGS = "-X github.com/kelda-inc/kelda/pkg/version.Version=$(KELDA_VERSION) -X github.com/kelda-inc/kelda/pkg/version.KeldaImage=$(DOCKER_IMAGE) -X github.com/kelda-inc/kelda/cmd/upgradecli.Token=$(UPGRADE_TOKEN)"
+LD_FLAGS = "-X github.com/sidkik/kelda-v1/pkg/version.Version=$(KELDA_VERSION) -X github.com/sidkik/kelda-v1/pkg/version.KeldaImage=$(DOCKER_IMAGE) -X github.com/sidkik/kelda-v1/cmd/upgradecli.Token=$(UPGRADE_TOKEN)"
 VENV_BIN = venv/bin
 KELDA_INC_PATH = $(GOPATH)/src/github.com/kelda-inc
 CI_EXAMPLES_REPO_PATH = $(KELDA_INC_PATH)/examples
@@ -94,7 +94,7 @@ generate:
 
 generate-crd:
 	$$GOPATH/src/k8s.io/code-generator/generate-groups.sh "deepcopy,client,informer,lister" \
-		github.com/kelda-inc/kelda/pkg/crd/client github.com/kelda-inc/kelda/pkg/crd/apis kelda:v1alpha1
+		github.com/sidkik/kelda-v1/pkg/crd/client github.com/sidkik/kelda-v1/pkg/crd/apis kelda:v1alpha1
 
 coverage:
 	go test -p 2 -coverpkg=./... -coverprofile=coverage.txt ./...

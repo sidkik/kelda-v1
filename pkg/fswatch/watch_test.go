@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	"github.com/kelda-inc/fsnotify"
-	"github.com/kelda-inc/kelda/pkg/proto/dev"
+	"github.com/sidkik/kelda-v1/pkg/proto/dev"
 )
 
 func TestGetPathsToWatch(t *testing.T) {

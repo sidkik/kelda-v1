@@ -11,7 +11,7 @@ import (
 	"k8s.io/client-go/tools/portforward"
 	"k8s.io/client-go/transport/spdy"
 
-	"github.com/kelda-inc/kelda/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 // Tunnel is a instance of a port-forward between the local machine and a microservice.

@@ -13,10 +13,10 @@ import (
 	"github.com/stretchr/testify/require"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	keldaAssert "github.com/kelda-inc/kelda/ci/assert"
-	"github.com/kelda-inc/kelda/ci/util"
-	"github.com/kelda-inc/kelda/pkg/config"
-	"github.com/kelda-inc/kelda/pkg/errors"
+	keldaAssert "github.com/sidkik/kelda-v1/ci/assert"
+	"github.com/sidkik/kelda-v1/ci/util"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 // ExampleTest is used for testing our example applications.

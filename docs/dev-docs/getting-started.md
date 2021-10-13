@@ -4,7 +4,7 @@
 
 1. Ensure that `GOPATH` is set to your workspace location
 
-2. Clone the Kelda repository to `$GOPATH/src/github.com/kelda-inc/kelda`
+2. Clone the Kelda repository to `$GOPATH/src/github.com/sidkik/kelda-v1`
 
 3. Build with `make install`. Ensure that `$GOPATH/bin` is in `PATH` if you want to launch Kelda without using the full path, but make sure this doesn't cause a conflict with other versions of Kelda e.g. in `/usr/local/bin`.
 

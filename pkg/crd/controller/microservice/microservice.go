@@ -31,17 +31,17 @@ import (
 	"k8s.io/kubectl/pkg/cmd/apply"
 	kubectlUtil "k8s.io/kubectl/pkg/util"
 
-	"github.com/kelda-inc/kelda/cmd/util"
-	kelda "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
-	clientset "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned"
-	informerfactory "github.com/kelda-inc/kelda/pkg/crd/client/informers/externalversions"
-	listers "github.com/kelda-inc/kelda/pkg/crd/client/listers/kelda/v1alpha1"
-	"github.com/kelda-inc/kelda/pkg/crd/controller/microservice/annotations"
-	"github.com/kelda-inc/kelda/pkg/errors"
-	"github.com/kelda-inc/kelda/pkg/kube"
-	"github.com/kelda-inc/kelda/pkg/minion/server"
-	"github.com/kelda-inc/kelda/pkg/update"
-	"github.com/kelda-inc/kelda/pkg/version"
+	"github.com/sidkik/kelda-v1/cmd/util"
+	kelda "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
+	clientset "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned"
+	informerfactory "github.com/sidkik/kelda-v1/pkg/crd/client/informers/externalversions"
+	listers "github.com/sidkik/kelda-v1/pkg/crd/client/listers/kelda/v1alpha1"
+	"github.com/sidkik/kelda-v1/pkg/crd/controller/microservice/annotations"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/kube"
+	"github.com/sidkik/kelda-v1/pkg/minion/server"
+	"github.com/sidkik/kelda-v1/pkg/update"
+	"github.com/sidkik/kelda-v1/pkg/version"
 )
 
 // The number of times to retry syncing or applying a Microservice before giving

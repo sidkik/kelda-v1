@@ -21,7 +21,7 @@ package versioned
 import (
 	"fmt"
 
-	keldav1alpha1 "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned/typed/kelda/v1alpha1"
+	keldav1alpha1 "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned/typed/kelda/v1alpha1"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"

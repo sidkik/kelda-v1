@@ -11,10 +11,10 @@ import (
 	"github.com/stretchr/testify/require"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	kelda "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
-	fakeKelda "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned/fake"
-	"github.com/kelda-inc/kelda/pkg/proto/dev"
-	"github.com/kelda-inc/kelda/pkg/sync"
+	kelda "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
+	fakeKelda "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned/fake"
+	"github.com/sidkik/kelda-v1/pkg/proto/dev"
+	"github.com/sidkik/kelda-v1/pkg/sync"
 )
 
 func TestSyncDevStatus(t *testing.T) {

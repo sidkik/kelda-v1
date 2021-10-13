@@ -235,6 +235,24 @@ func (w *Watcher) addWatch(name string, flags uint32) (string, error) {
 		w.paths[watchfd] = pathInfo{name: name, isDir: isDir}
 		w.mu.Unlock()
 	}
+
+	if isDir {
+		// Watch the directory if it has not been watched before,
+		// or if it was watched before, but perhaps only a NOTE_DELETE (watchDirectoryFiles)
+		w.mu.Lock()
+
+		watchDir := (flags&unix.NOTE_WRITE) == unix.NOTE_WRITE &&
+			(!alreadyWatching || (w.dirFlags[name]&unix.NOTE_WRITE) != unix.NOTE_WRITE)
+		// Store flags so this watch can be updated later
+		w.dirFlags[name] = flags
+		w.mu.Unlock()
+
+		if watchDir {
+			if err := w.watchDirectoryFiles(name); err != nil {
+				return "", err
+			}
+		}
+	}
 	return name, nil
 }
 

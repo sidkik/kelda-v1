@@ -7,7 +7,7 @@ import (
 	"github.com/spf13/afero"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/kelda-inc/kelda/pkg/proto/dev"
+	"github.com/sidkik/kelda-v1/pkg/proto/dev"
 )
 
 func TestSyncedVersion(t *testing.T) {

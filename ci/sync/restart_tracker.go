@@ -4,8 +4,8 @@ import (
 	"context"
 	"strings"
 
-	"github.com/kelda-inc/kelda/ci/util"
-	"github.com/kelda-inc/kelda/pkg/errors"
+	"github.com/sidkik/kelda-v1/ci/util"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 // restartTracker keeps track of whether the dev process in the container has

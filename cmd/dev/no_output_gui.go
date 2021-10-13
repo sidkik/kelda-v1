@@ -6,7 +6,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	keldaClientset "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned"
+	keldaClientset "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned"
 )
 
 // noOutputGUI implements a headless GUI that's used during integration tests.

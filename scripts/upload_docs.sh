@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-website_path="$GOPATH/src/github.com/kelda-inc/kelda.io"
+website_path="$GOPATH/src/github.com/sidkik/kelda-v1.io"
 docs_out_path="${website_path}/site/static/docs"
 version_path="${website_path}/docs_version"
 

@@ -7,7 +7,7 @@ import (
 	"github.com/ghodss/yaml"
 	"github.com/spf13/afero"
 
-	"github.com/kelda-inc/kelda/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 // parseConfigErrTemplate is a template for when the CLI fails to parse yaml

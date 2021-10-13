@@ -21,10 +21,10 @@ package v1alpha1
 import (
 	time "time"
 
-	keldav1alpha1 "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
-	versioned "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned"
-	internalinterfaces "github.com/kelda-inc/kelda/pkg/crd/client/informers/externalversions/internalinterfaces"
-	v1alpha1 "github.com/kelda-inc/kelda/pkg/crd/client/listers/kelda/v1alpha1"
+	keldav1alpha1 "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
+	versioned "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned"
+	internalinterfaces "github.com/sidkik/kelda-v1/pkg/crd/client/informers/externalversions/internalinterfaces"
+	v1alpha1 "github.com/sidkik/kelda-v1/pkg/crd/client/listers/kelda/v1alpha1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	watch "k8s.io/apimachinery/pkg/watch"

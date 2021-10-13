@@ -9,9 +9,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/kelda-inc/kelda/pkg/proto/dev"
-	"github.com/kelda-inc/kelda/pkg/sync"
-	syncMocks "github.com/kelda-inc/kelda/pkg/sync/client/mocks"
+	"github.com/sidkik/kelda-v1/pkg/proto/dev"
+	"github.com/sidkik/kelda-v1/pkg/sync"
+	syncMocks "github.com/sidkik/kelda-v1/pkg/sync/client/mocks"
 )
 
 func TestSyncOnce(t *testing.T) {

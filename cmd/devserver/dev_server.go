@@ -8,11 +8,11 @@ import (
 	"github.com/spf13/cobra"
 	"k8s.io/client-go/rest"
 
-	"github.com/kelda-inc/kelda/cmd/util"
-	keldaClientset "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned"
-	"github.com/kelda-inc/kelda/pkg/errors"
-	minionClient "github.com/kelda-inc/kelda/pkg/minion/client"
-	syncServer "github.com/kelda-inc/kelda/pkg/sync/server"
+	"github.com/sidkik/kelda-v1/cmd/util"
+	keldaClientset "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	minionClient "github.com/sidkik/kelda-v1/pkg/minion/client"
+	syncServer "github.com/sidkik/kelda-v1/pkg/sync/server"
 )
 
 // New creates a new `dev-server` command.

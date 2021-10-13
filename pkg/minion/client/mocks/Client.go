@@ -3,10 +3,10 @@
 package mocks
 
 import (
-	config "github.com/kelda-inc/kelda/pkg/config"
-	messages "github.com/kelda-inc/kelda/pkg/proto/messages"
+	config "github.com/sidkik/kelda-v1/pkg/config"
+	messages "github.com/sidkik/kelda-v1/pkg/proto/messages"
 
-	minion "github.com/kelda-inc/kelda/pkg/proto/minion"
+	minion "github.com/sidkik/kelda-v1/pkg/proto/minion"
 
 	mock "github.com/stretchr/testify/mock"
 )

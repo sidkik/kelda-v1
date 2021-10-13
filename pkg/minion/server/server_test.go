@@ -13,14 +13,14 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/kubernetes/fake"
 
-	"github.com/kelda-inc/kelda/pkg/config"
-	kelda "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
-	fakeKelda "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned/fake"
-	"github.com/kelda-inc/kelda/pkg/errors"
-	"github.com/kelda-inc/kelda/pkg/minion/client"
-	"github.com/kelda-inc/kelda/pkg/proto/messages"
-	"github.com/kelda-inc/kelda/pkg/proto/minion"
-	"github.com/kelda-inc/kelda/pkg/update"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	kelda "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
+	fakeKelda "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned/fake"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/minion/client"
+	"github.com/sidkik/kelda-v1/pkg/proto/messages"
+	"github.com/sidkik/kelda-v1/pkg/proto/minion"
+	"github.com/sidkik/kelda-v1/pkg/update"
 )
 
 func TestCreatePriorityClass(t *testing.T) {

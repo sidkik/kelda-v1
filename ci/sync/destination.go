@@ -9,8 +9,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/kelda-inc/kelda/ci/util"
-	"github.com/kelda-inc/kelda/pkg/config"
+	"github.com/sidkik/kelda-v1/ci/util"
+	"github.com/sidkik/kelda-v1/pkg/config"
 )
 
 type syncTest struct {

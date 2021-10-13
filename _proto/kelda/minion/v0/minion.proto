@@ -6,7 +6,7 @@ import "google/protobuf/timestamp.proto";
 import "kelda/errors/v0/errors.proto";
 import "kelda/messages/v0/messages.proto";
 
-option go_package = "github.com/kelda-inc/kelda/pkg/proto/minion";
+option go_package = "github.com/sidkik/kelda-v1/pkg/proto/minion";
 
 service Kelda {
   rpc CreateWorkspace(CreateWorkspaceRequest) returns (CreateWorkspaceResponse) {}
