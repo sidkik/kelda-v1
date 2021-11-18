@@ -19,19 +19,19 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	keldaAssert "github.com/kelda-inc/kelda/ci/assert"
-	"github.com/kelda-inc/kelda/ci/change_workspace"
-	"github.com/kelda-inc/kelda/ci/examples"
-	"github.com/kelda-inc/kelda/ci/guess_dev_command"
-	"github.com/kelda-inc/kelda/ci/magda"
-	"github.com/kelda-inc/kelda/ci/multiple_services"
-	"github.com/kelda-inc/kelda/ci/restart"
-	"github.com/kelda-inc/kelda/ci/sync"
-	"github.com/kelda-inc/kelda/ci/update"
-	"github.com/kelda-inc/kelda/ci/util"
+	keldaAssert "github.com/sidkik/kelda-v1/ci/assert"
+	"github.com/sidkik/kelda-v1/ci/change_workspace"
+	"github.com/sidkik/kelda-v1/ci/examples"
+	"github.com/sidkik/kelda-v1/ci/guess_dev_command"
+	"github.com/sidkik/kelda-v1/ci/magda"
+	"github.com/sidkik/kelda-v1/ci/multiple_services"
+	"github.com/sidkik/kelda-v1/ci/restart"
+	"github.com/sidkik/kelda-v1/ci/sync"
+	"github.com/sidkik/kelda-v1/ci/update"
+	"github.com/sidkik/kelda-v1/ci/util"
 
-	"github.com/kelda-inc/kelda/pkg/config"
-	minionClient "github.com/kelda-inc/kelda/pkg/minion/client"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	minionClient "github.com/sidkik/kelda-v1/pkg/minion/client"
 )
 
 type TestFunction func(*testing.T, *util.TestHelper)

@@ -23,8 +23,8 @@ import (
 	"k8s.io/helm/pkg/proto/hapi/chart"
 	"k8s.io/helm/pkg/renderutil"
 
-	"github.com/kelda-inc/kelda/pkg/errors"
-	"github.com/kelda-inc/kelda/pkg/kube"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/kube"
 )
 
 // Workspace contains the main development environment configuration.
@@ -212,7 +212,6 @@ func ParseWorkspace(syncLogger *logrus.Logger, cfgPath string, ns string) (Works
 
 		services = append(services, subServices...)
 	}
-
 	config.Services = services
 	if err := config.lint(); err != nil {
 		return Workspace{}, err

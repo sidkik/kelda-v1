@@ -13,8 +13,8 @@ import (
 
 	"github.com/spf13/afero"
 
-	"github.com/kelda-inc/kelda/pkg/errors"
-	"github.com/kelda-inc/kelda/pkg/proto/dev"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/proto/dev"
 )
 
 // Mocked out for unit testing.

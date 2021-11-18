@@ -20,10 +20,10 @@ import (
 	core "k8s.io/api/core/v1"
 	"k8s.io/client-go/kubernetes"
 
-	"github.com/kelda-inc/kelda/cmd/util"
-	"github.com/kelda-inc/kelda/pkg/config"
-	keldaClientset "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned"
-	"github.com/kelda-inc/kelda/pkg/errors"
+	"github.com/sidkik/kelda-v1/cmd/util"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	keldaClientset "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 var stdout io.Writer = os.Stdout

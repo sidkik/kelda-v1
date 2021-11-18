@@ -11,10 +11,10 @@ import (
 	"github.com/jroimartin/gocui"
 	"github.com/sirupsen/logrus"
 
-	"github.com/kelda-inc/kelda/cmd/util"
-	kelda "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
-	keldaClientset "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned"
-	"github.com/kelda-inc/kelda/pkg/errors"
+	"github.com/sidkik/kelda-v1/cmd/util"
+	kelda "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
+	keldaClientset "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 const (

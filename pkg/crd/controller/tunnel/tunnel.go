@@ -20,13 +20,13 @@ import (
 	"k8s.io/client-go/transport/spdy"
 	"k8s.io/client-go/util/workqueue"
 
-	kelda "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
-	clientset "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned"
-	informerfactory "github.com/kelda-inc/kelda/pkg/crd/client/informers/externalversions"
-	informers "github.com/kelda-inc/kelda/pkg/crd/client/informers/externalversions/kelda/v1alpha1"
-	listers "github.com/kelda-inc/kelda/pkg/crd/client/listers/kelda/v1alpha1"
-	"github.com/kelda-inc/kelda/pkg/errors"
-	"github.com/kelda-inc/kelda/pkg/kube"
+	kelda "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
+	clientset "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned"
+	informerfactory "github.com/sidkik/kelda-v1/pkg/crd/client/informers/externalversions"
+	informers "github.com/sidkik/kelda-v1/pkg/crd/client/informers/externalversions/kelda/v1alpha1"
+	listers "github.com/sidkik/kelda-v1/pkg/crd/client/listers/kelda/v1alpha1"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/kube"
 )
 
 type controller struct {

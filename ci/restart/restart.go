@@ -9,8 +9,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/kelda-inc/kelda/ci/magda"
-	"github.com/kelda-inc/kelda/ci/util"
+	"github.com/sidkik/kelda-v1/ci/magda"
+	"github.com/sidkik/kelda-v1/ci/util"
 
 	// Load the client authentication plugin necessary for connecting to GKE.
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"

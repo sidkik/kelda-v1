@@ -16,9 +16,9 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"k8s.io/client-go/kubernetes/scheme"
 
-	kelda "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
-	minionServer "github.com/kelda-inc/kelda/pkg/minion/server"
-	"github.com/kelda-inc/kelda/pkg/version"
+	kelda "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
+	minionServer "github.com/sidkik/kelda-v1/pkg/minion/server"
+	"github.com/sidkik/kelda-v1/pkg/version"
 )
 
 func TestInject(t *testing.T) {

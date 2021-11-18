@@ -3,7 +3,7 @@ package sync
 import (
 	log "github.com/sirupsen/logrus"
 
-	"github.com/kelda-inc/kelda/pkg/proto/dev"
+	"github.com/sidkik/kelda-v1/pkg/proto/dev"
 )
 
 // SyncedTracker tracks files that have been synced from the mirror files

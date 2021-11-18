@@ -7,7 +7,7 @@ import (
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/remotecommand"
 
-	"github.com/kelda-inc/kelda/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 // Exec runs a command in a Kubernetes pod.

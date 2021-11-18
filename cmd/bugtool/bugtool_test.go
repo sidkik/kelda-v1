@@ -14,7 +14,7 @@ import (
 	"k8s.io/client-go/kubernetes"
 	fakeKube "k8s.io/client-go/kubernetes/fake"
 
-	"github.com/kelda-inc/kelda/pkg/config"
+	"github.com/sidkik/kelda-v1/pkg/config"
 )
 
 type file struct {

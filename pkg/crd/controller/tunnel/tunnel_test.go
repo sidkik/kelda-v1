@@ -11,11 +11,11 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
 
-	kelda "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
-	clientset "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned"
-	fakeKelda "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned/fake"
-	informerfactory "github.com/kelda-inc/kelda/pkg/crd/client/informers/externalversions"
-	"github.com/kelda-inc/kelda/pkg/kube"
+	kelda "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
+	clientset "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned"
+	fakeKelda "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned/fake"
+	informerfactory "github.com/sidkik/kelda-v1/pkg/crd/client/informers/externalversions"
+	"github.com/sidkik/kelda-v1/pkg/kube"
 )
 
 func TestEnsureTunnelDoesNotExist(t *testing.T) {

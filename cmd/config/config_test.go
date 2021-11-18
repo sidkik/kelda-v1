@@ -13,8 +13,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	clientcmdapi "k8s.io/client-go/tools/clientcmd/api"
 
-	"github.com/kelda-inc/kelda/pkg/config"
-	"github.com/kelda-inc/kelda/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 func TestPromptUser(t *testing.T) {

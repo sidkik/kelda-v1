@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package kelda.errors.v0;
 
-option go_package = "github.com/kelda-inc/kelda/pkg/proto/errors";
+option go_package = "github.com/sidkik/kelda-v1/pkg/proto/errors";
 
 // Error is a union of possible error types. Each field corresponds to a type
 // in our Go code.

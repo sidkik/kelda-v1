@@ -4,8 +4,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/kelda-inc/kelda/cmd"
-	"github.com/kelda-inc/kelda/cmd/util"
+	"github.com/sidkik/kelda-v1/cmd"
+	"github.com/sidkik/kelda-v1/cmd/util"
 )
 
 func main() {

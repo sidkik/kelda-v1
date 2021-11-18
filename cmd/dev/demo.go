@@ -8,10 +8,10 @@ import (
 	"gopkg.in/src-d/go-git.v4"
 	"gopkg.in/src-d/go-git.v4/plumbing"
 
-	configCmd "github.com/kelda-inc/kelda/cmd/config"
-	loginCmd "github.com/kelda-inc/kelda/cmd/login"
-	"github.com/kelda-inc/kelda/pkg/config"
-	"github.com/kelda-inc/kelda/pkg/errors"
+	configCmd "github.com/sidkik/kelda-v1/cmd/config"
+	loginCmd "github.com/sidkik/kelda-v1/cmd/login"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 var (

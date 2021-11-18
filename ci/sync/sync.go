@@ -13,9 +13,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/kelda-inc/kelda/ci/util"
-	"github.com/kelda-inc/kelda/pkg/config"
-	"github.com/kelda-inc/kelda/pkg/errors"
+	"github.com/sidkik/kelda-v1/ci/util"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 // syncTestServiceName must match the service name in the test workspace.

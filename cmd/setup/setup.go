@@ -16,7 +16,7 @@ import (
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
 	rbacv1 "k8s.io/api/rbac/v1"
-	apiextensionsv1beta1 "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1beta1"
+	apiextensionsv1 "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1"
 	apiextensionsClientset "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset"
 	kerrors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/api/resource"
@@ -24,13 +24,13 @@ import (
 	"k8s.io/apimachinery/pkg/util/intstr"
 	"k8s.io/client-go/kubernetes"
 
-	"github.com/kelda-inc/kelda/cmd/util"
-	"github.com/kelda-inc/kelda/pkg/analytics"
-	"github.com/kelda-inc/kelda/pkg/config"
-	kelda "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
-	"github.com/kelda-inc/kelda/pkg/errors"
-	minionClient "github.com/kelda-inc/kelda/pkg/minion/client"
-	"github.com/kelda-inc/kelda/pkg/version"
+	"github.com/sidkik/kelda-v1/cmd/util"
+	"github.com/sidkik/kelda-v1/pkg/analytics"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	kelda "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	minionClient "github.com/sidkik/kelda-v1/pkg/minion/client"
+	"github.com/sidkik/kelda-v1/pkg/version"
 )
 
 const (
@@ -127,7 +127,7 @@ func main(licensePath string, shouldPrompt bool) error {
 
 	// If it's a trial, we need to show the EULA.
 	if license.Terms.Type == config.Trial {
-		eulaAccepted, err := ShowEULA()
+		eulaAccepted := true // , err := ShowEULA()
 		if err != nil {
 			return errors.WithContext(err, "show EULA")
 		}
@@ -138,18 +138,18 @@ func main(licensePath string, shouldPrompt bool) error {
 		}
 	}
 
-	if shouldPrompt {
-		prompt := fmt.Sprintf("Deploy to kubeconfig context `%s`?", context)
-		shouldDeploy, err := util.PromptYesOrNo(prompt)
-		if err != nil {
-			return errors.WithContext(err, "prompt")
-		}
+	// if shouldPrompt {
+	// 	prompt := fmt.Sprintf("Deploy to kubeconfig context `%s`?", context)
+	// 	shouldDeploy, err := util.PromptYesOrNo(prompt)
+	// 	if err != nil {
+	// 		return errors.WithContext(err, "prompt")
+	// 	}
 
-		if !shouldDeploy {
-			fmt.Println("Aborting.")
-			return nil
-		}
-	}
+	// 	if !shouldDeploy {
+	// 		fmt.Println("Aborting.")
+	// 		return nil
+	// 	}
+	// }
 
 	msg := fmt.Sprintf("Deploying Kelda components to the `%s` context..", context)
 	pp := util.NewProgressPrinter(os.Stdout, msg)
@@ -434,39 +434,39 @@ func createServiceAccount(kubeClient kubernetes.Interface) error {
 }
 
 func createCRDs(crdClient apiextensionsClientset.Interface) error {
-	ms := &apiextensionsv1beta1.CustomResourceDefinition{
+	ms := &apiextensionsv1.CustomResourceDefinition{
 		ObjectMeta: metav1.ObjectMeta{
 			Name: "microservices.kelda.io",
 		},
-		Spec: apiextensionsv1beta1.CustomResourceDefinitionSpec{
-			Group:   kelda.SchemeGroupVersion.Group,
-			Version: kelda.SchemeGroupVersion.Version,
-			Names: apiextensionsv1beta1.CustomResourceDefinitionNames{
+		Spec: apiextensionsv1.CustomResourceDefinitionSpec{
+			Group:    kelda.SchemeGroupVersion.Group,
+			Versions: []apiextensionsv1.CustomResourceDefinitionVersion{kelda.MicroserviceSchemaVersion},
+			Names: apiextensionsv1.CustomResourceDefinitionNames{
 				Plural:     "microservices",
 				ShortNames: []string{"ms"},
 				Kind:       "Microservice",
 			},
-			Scope: apiextensionsv1beta1.NamespaceScoped,
+			Scope: apiextensionsv1.NamespaceScoped,
 		},
 	}
 
-	tunnel := &apiextensionsv1beta1.CustomResourceDefinition{
+	tunnel := &apiextensionsv1.CustomResourceDefinition{
 		ObjectMeta: metav1.ObjectMeta{
 			Name: "tunnels.kelda.io",
 		},
-		Spec: apiextensionsv1beta1.CustomResourceDefinitionSpec{
-			Group:   kelda.SchemeGroupVersion.Group,
-			Version: kelda.SchemeGroupVersion.Version,
-			Names: apiextensionsv1beta1.CustomResourceDefinitionNames{
+		Spec: apiextensionsv1.CustomResourceDefinitionSpec{
+			Group:    kelda.SchemeGroupVersion.Group,
+			Versions: []apiextensionsv1.CustomResourceDefinitionVersion{kelda.TunnelSchemaVersion},
+			Names: apiextensionsv1.CustomResourceDefinitionNames{
 				Plural: "tunnels",
 				Kind:   "Tunnel",
 			},
-			Scope: apiextensionsv1beta1.NamespaceScoped,
+			Scope: apiextensionsv1.NamespaceScoped,
 		},
 	}
 
-	c := crdClient.ApiextensionsV1beta1().CustomResourceDefinitions()
-	for _, crd := range []*apiextensionsv1beta1.CustomResourceDefinition{ms, tunnel} {
+	c := crdClient.ApiextensionsV1().CustomResourceDefinitions()
+	for _, crd := range []*apiextensionsv1.CustomResourceDefinition{ms, tunnel} {
 		curr, err := c.Get(crd.Name, metav1.GetOptions{})
 		if err != nil && !kerrors.IsNotFound(err) {
 			return errors.WithContext(err, "get")

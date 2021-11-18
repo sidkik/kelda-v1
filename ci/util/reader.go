@@ -6,7 +6,7 @@ import (
 	"io"
 	"time"
 
-	"github.com/kelda-inc/kelda/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 // StreamReader provides convenience methods for reading from io streams.

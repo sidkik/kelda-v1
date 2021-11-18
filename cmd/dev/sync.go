@@ -12,13 +12,13 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
 
-	"github.com/kelda-inc/kelda/pkg/config"
-	keldaClientset "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned"
-	"github.com/kelda-inc/kelda/pkg/errors"
-	"github.com/kelda-inc/kelda/pkg/fswatch"
-	"github.com/kelda-inc/kelda/pkg/proto/dev"
-	"github.com/kelda-inc/kelda/pkg/sync"
-	syncClient "github.com/kelda-inc/kelda/pkg/sync/client"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	keldaClientset "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/fswatch"
+	"github.com/sidkik/kelda-v1/pkg/proto/dev"
+	"github.com/sidkik/kelda-v1/pkg/sync"
+	syncClient "github.com/sidkik/kelda-v1/pkg/sync/client"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 

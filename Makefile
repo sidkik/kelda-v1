@@ -1,8 +1,8 @@
 UPGRADE_TOKEN?=upgrade
 KELDA_VERSION?=$(shell ./scripts/dev_version.sh)
-DOCKER_REPO = gcr.io/kelda-images
+DOCKER_REPO = ghcr.io/sidkik
 DOCKER_IMAGE = ${DOCKER_REPO}/kelda:${KELDA_VERSION}
-LD_FLAGS = "-X github.com/kelda-inc/kelda/pkg/version.Version=$(KELDA_VERSION) -X github.com/kelda-inc/kelda/pkg/version.KeldaImage=$(DOCKER_IMAGE) -X github.com/kelda-inc/kelda/cmd/upgradecli.Token=$(UPGRADE_TOKEN)"
+LD_FLAGS = "-X github.com/sidkik/kelda-v1/pkg/version.Version=$(KELDA_VERSION) -X github.com/sidkik/kelda-v1/pkg/version.KeldaImage=$(DOCKER_IMAGE) -X github.com/sidkik/kelda-v1/cmd/upgradecli.Token=$(UPGRADE_TOKEN)"
 VENV_BIN = venv/bin
 KELDA_INC_PATH = $(GOPATH)/src/github.com/kelda-inc
 CI_EXAMPLES_REPO_PATH = $(KELDA_INC_PATH)/examples
@@ -79,9 +79,10 @@ build-circle-image:
 	docker build -f .circleci/Dockerfile . -t keldaio/circleci
 
 docker-build:
-	docker build --build-arg KELDA_VERSION=$(KELDA_VERSION) -t $(DOCKER_IMAGE) .
+	docker build --progress=plain --build-arg KELDA_VERSION=$(KELDA_VERSION) -t $(DOCKER_IMAGE) .
 
 docker-push: docker-build
+	echo $$CR_PAT | docker login ghcr.io -u cchatfield --password-stdin	
 	docker push $(DOCKER_IMAGE)
 
 generate:
@@ -93,8 +94,10 @@ generate:
 	go generate ./...
 
 generate-crd:
-	$$GOPATH/src/k8s.io/code-generator/generate-groups.sh "deepcopy,client,informer,lister" \
-		github.com/kelda-inc/kelda/pkg/crd/client github.com/kelda-inc/kelda/pkg/crd/apis kelda:v1alpha1
+	export GOPATH=/root/go
+	chmod +x vendor/k8s.io/code-generator/generate-groups.sh
+	vendor/k8s.io/code-generator/generate-groups.sh "deepcopy,client,informer,lister" \
+		github.com/sidkik/kelda-v1/pkg/crd/client github.com/sidkik/kelda-v1/pkg/crd/apis kelda:v1alpha1
 
 coverage:
 	go test -p 2 -coverpkg=./... -coverprofile=coverage.txt ./...

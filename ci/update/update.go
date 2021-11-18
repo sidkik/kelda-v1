@@ -17,9 +17,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	keldaAssert "github.com/kelda-inc/kelda/ci/assert"
-	"github.com/kelda-inc/kelda/ci/util"
-	"github.com/kelda-inc/kelda/pkg/errors"
+	keldaAssert "github.com/sidkik/kelda-v1/ci/assert"
+	"github.com/sidkik/kelda-v1/ci/util"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 const (

@@ -13,8 +13,8 @@ import (
 	"k8s.io/client-go/kubernetes"
 	fakeKube "k8s.io/client-go/kubernetes/fake"
 
-	"github.com/kelda-inc/kelda/pkg/errors"
-	minionClient "github.com/kelda-inc/kelda/pkg/minion/client"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	minionClient "github.com/sidkik/kelda-v1/pkg/minion/client"
 )
 
 func TestCreateObjects(t *testing.T) {

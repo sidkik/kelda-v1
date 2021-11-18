@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/kelda-inc/kelda/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 type Assertion func() error

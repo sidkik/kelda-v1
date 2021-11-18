@@ -5,7 +5,7 @@ package kelda.dev.v0;
 import "google/protobuf/timestamp.proto";
 import "kelda/errors/v0/errors.proto";
 
-option go_package = "github.com/kelda-inc/kelda/pkg/proto/dev";
+option go_package = "github.com/sidkik/kelda-v1/pkg/proto/dev";
 
 service Dev {
   // SetTargetVersion sets the service's expected code version.

@@ -9,9 +9,9 @@ import (
 	kerrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/kelda-inc/kelda/cmd/util"
-	"github.com/kelda-inc/kelda/pkg/config"
-	"github.com/kelda-inc/kelda/pkg/errors"
+	"github.com/sidkik/kelda-v1/cmd/util"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 const deadlineSeconds = 120

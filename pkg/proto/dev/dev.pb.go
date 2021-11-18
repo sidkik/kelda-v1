@@ -8,7 +8,7 @@ import (
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
 	timestamp "github.com/golang/protobuf/ptypes/timestamp"
-	errors "github.com/kelda-inc/kelda/pkg/proto/errors"
+	errors "github.com/sidkik/kelda-v1/pkg/proto/errors"
 	grpc "google.golang.org/grpc"
 	math "math"
 )

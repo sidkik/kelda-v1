@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	kelda "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
+	kelda "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
 )
 
 func TestGetCredentialsFromDockerConfig(t *testing.T) {

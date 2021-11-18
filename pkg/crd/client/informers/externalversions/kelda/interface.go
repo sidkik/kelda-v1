@@ -19,8 +19,8 @@ limitations under the License.
 package kelda
 
 import (
-	internalinterfaces "github.com/kelda-inc/kelda/pkg/crd/client/informers/externalversions/internalinterfaces"
-	v1alpha1 "github.com/kelda-inc/kelda/pkg/crd/client/informers/externalversions/kelda/v1alpha1"
+	internalinterfaces "github.com/sidkik/kelda-v1/pkg/crd/client/informers/externalversions/internalinterfaces"
+	v1alpha1 "github.com/sidkik/kelda-v1/pkg/crd/client/informers/externalversions/kelda/v1alpha1"
 )
 
 // Interface provides access to each of this group's versions.

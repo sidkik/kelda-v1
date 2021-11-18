@@ -21,7 +21,7 @@ limitations under the License.
 package v1alpha1
 
 import (
-	kube "github.com/kelda-inc/kelda/pkg/kube"
+	kube "github.com/sidkik/kelda-v1/pkg/kube"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 )
 

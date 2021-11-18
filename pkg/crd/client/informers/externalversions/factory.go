@@ -23,9 +23,9 @@ import (
 	sync "sync"
 	time "time"
 
-	versioned "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned"
-	internalinterfaces "github.com/kelda-inc/kelda/pkg/crd/client/informers/externalversions/internalinterfaces"
-	kelda "github.com/kelda-inc/kelda/pkg/crd/client/informers/externalversions/kelda"
+	versioned "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned"
+	internalinterfaces "github.com/sidkik/kelda-v1/pkg/crd/client/informers/externalversions/internalinterfaces"
+	kelda "github.com/sidkik/kelda-v1/pkg/crd/client/informers/externalversions/kelda"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"

@@ -15,9 +15,9 @@ import (
 	"github.com/spf13/cobra"
 	"k8s.io/client-go/tools/clientcmd"
 
-	"github.com/kelda-inc/kelda/cmd/util"
-	"github.com/kelda-inc/kelda/pkg/config"
-	"github.com/kelda-inc/kelda/pkg/errors"
+	"github.com/sidkik/kelda-v1/cmd/util"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 // Mocked for unit testing.

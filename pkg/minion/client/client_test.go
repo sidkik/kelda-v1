@@ -16,11 +16,11 @@ import (
 	fakeKube "k8s.io/client-go/kubernetes/fake"
 	"k8s.io/client-go/rest"
 
-	"github.com/kelda-inc/kelda/pkg/config"
-	"github.com/kelda-inc/kelda/pkg/errors"
-	"github.com/kelda-inc/kelda/pkg/kube"
-	pbMocks "github.com/kelda-inc/kelda/pkg/minion/client/mocks"
-	"github.com/kelda-inc/kelda/pkg/proto/minion"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/kube"
+	pbMocks "github.com/sidkik/kelda-v1/pkg/minion/client/mocks"
+	"github.com/sidkik/kelda-v1/pkg/proto/minion"
 )
 
 func TestNewMinionClient(t *testing.T) {

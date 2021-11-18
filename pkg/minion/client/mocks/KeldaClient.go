@@ -7,7 +7,7 @@ import (
 
 	grpc "google.golang.org/grpc"
 
-	minion "github.com/kelda-inc/kelda/pkg/proto/minion"
+	minion "github.com/sidkik/kelda-v1/pkg/proto/minion"
 
 	mock "github.com/stretchr/testify/mock"
 )

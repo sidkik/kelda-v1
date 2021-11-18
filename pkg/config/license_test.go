@@ -8,8 +8,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/crypto/ed25519"
 
-	"github.com/kelda-inc/kelda/pkg/errors"
-	"github.com/kelda-inc/kelda/pkg/proto/messages"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/proto/messages"
 )
 
 func TestMarshalLicense(t *testing.T) {

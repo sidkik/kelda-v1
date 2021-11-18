@@ -7,7 +7,7 @@ import (
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
 
-	"github.com/kelda-inc/kelda/pkg/kube"
+	"github.com/sidkik/kelda-v1/pkg/kube"
 )
 
 func TestCountPodSpecs(t *testing.T) {

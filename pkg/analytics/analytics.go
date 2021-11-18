@@ -9,7 +9,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/kelda-inc/kelda/pkg/version"
+	"github.com/sidkik/kelda-v1/pkg/version"
 )
 
 var (

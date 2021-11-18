@@ -21,13 +21,13 @@ import (
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/remotecommand"
 
-	"github.com/kelda-inc/kelda/cmd/util"
-	"github.com/kelda-inc/kelda/pkg/config"
-	kelda "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
-	keldaClientset "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned"
-	"github.com/kelda-inc/kelda/pkg/errors"
-	"github.com/kelda-inc/kelda/pkg/kube"
-	"github.com/kelda-inc/kelda/pkg/sync"
+	"github.com/sidkik/kelda-v1/cmd/util"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	kelda "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
+	keldaClientset "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/kube"
+	"github.com/sidkik/kelda-v1/pkg/sync"
 )
 
 // TestHelper contains methods commonly used during integration tests.

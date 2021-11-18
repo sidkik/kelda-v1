@@ -9,9 +9,9 @@ import (
 	"k8s.io/apimachinery/pkg/labels"
 	"k8s.io/client-go/tools/cache"
 
-	kelda "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
-	keldaClientset "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned"
-	informerfactory "github.com/kelda-inc/kelda/pkg/crd/client/informers/externalversions"
+	kelda "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
+	keldaClientset "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned"
+	informerfactory "github.com/sidkik/kelda-v1/pkg/crd/client/informers/externalversions"
 )
 
 // registerInformerHandler adds an event handler to the informer, which simply

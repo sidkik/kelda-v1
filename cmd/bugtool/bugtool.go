@@ -18,13 +18,13 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
 
-	"github.com/kelda-inc/kelda/cmd/util"
-	"github.com/kelda-inc/kelda/pkg/config"
-	kelda "github.com/kelda-inc/kelda/pkg/crd/apis/kelda/v1alpha1"
-	"github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned/scheme"
-	"github.com/kelda-inc/kelda/pkg/errors"
-	minionClient "github.com/kelda-inc/kelda/pkg/minion/client"
-	"github.com/kelda-inc/kelda/pkg/version"
+	"github.com/sidkik/kelda-v1/cmd/util"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	kelda "github.com/sidkik/kelda-v1/pkg/crd/apis/kelda/v1alpha1"
+	"github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned/scheme"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	minionClient "github.com/sidkik/kelda-v1/pkg/minion/client"
+	"github.com/sidkik/kelda-v1/pkg/version"
 )
 
 var fs = afero.NewOsFs()

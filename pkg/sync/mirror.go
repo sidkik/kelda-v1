@@ -11,8 +11,8 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/afero"
 
-	"github.com/kelda-inc/kelda/pkg/errors"
-	"github.com/kelda-inc/kelda/pkg/proto/dev"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/proto/dev"
 )
 
 // A SourceFile is a file that exists on the user's machine.

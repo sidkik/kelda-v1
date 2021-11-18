@@ -1,7 +1,7 @@
 package errors
 
 import (
-	proto "github.com/kelda-inc/kelda/pkg/proto/errors"
+	proto "github.com/sidkik/kelda-v1/pkg/proto/errors"
 )
 
 // Marshal converts an error (that may contain custom Kelda error types) into

@@ -7,7 +7,7 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
 
-	"github.com/kelda-inc/kelda/pkg/kube"
+	"github.com/sidkik/kelda-v1/pkg/kube"
 )
 
 func TestGetSyncTunnelAddress(t *testing.T) {

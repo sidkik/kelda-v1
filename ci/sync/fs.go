@@ -14,8 +14,8 @@ import (
 	"github.com/ghodss/yaml"
 	homedir "github.com/mitchellh/go-homedir"
 
-	"github.com/kelda-inc/kelda/pkg/config"
-	"github.com/kelda-inc/kelda/pkg/errors"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	"github.com/sidkik/kelda-v1/pkg/errors"
 )
 
 type file struct {

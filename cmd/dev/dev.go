@@ -16,16 +16,16 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
 
-	"github.com/kelda-inc/kelda/cmd/util"
-	"github.com/kelda-inc/kelda/pkg/config"
-	keldaClientset "github.com/kelda-inc/kelda/pkg/crd/client/clientset/versioned"
-	"github.com/kelda-inc/kelda/pkg/crd/controller/tunnel"
-	"github.com/kelda-inc/kelda/pkg/errors"
-	minionClient "github.com/kelda-inc/kelda/pkg/minion/client"
-	"github.com/kelda-inc/kelda/pkg/proto/messages"
-	"github.com/kelda-inc/kelda/pkg/proto/minion"
-	syncClient "github.com/kelda-inc/kelda/pkg/sync/client"
-	"github.com/kelda-inc/kelda/pkg/version"
+	"github.com/sidkik/kelda-v1/cmd/util"
+	"github.com/sidkik/kelda-v1/pkg/config"
+	keldaClientset "github.com/sidkik/kelda-v1/pkg/crd/client/clientset/versioned"
+	"github.com/sidkik/kelda-v1/pkg/crd/controller/tunnel"
+	"github.com/sidkik/kelda-v1/pkg/errors"
+	minionClient "github.com/sidkik/kelda-v1/pkg/minion/client"
+	"github.com/sidkik/kelda-v1/pkg/proto/messages"
+	"github.com/sidkik/kelda-v1/pkg/proto/minion"
+	syncClient "github.com/sidkik/kelda-v1/pkg/sync/client"
+	"github.com/sidkik/kelda-v1/pkg/version"
 )
 
 type devCmd struct {
