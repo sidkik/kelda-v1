@@ -9,4 +9,4 @@ const EmptyValue = "set-by-make"
 var Version = EmptyValue
 
 // KeldaImage is the name of the Kelda Docker image.
-var KeldaImage = EmptyValue
+var KeldaImage = "ghcr.io/sidkik/kelda:0.15.14" //EmptyValue

@@ -1,33 +1,33 @@
 package main
 
-import (
-	"context"
-	"encoding/csv"
-	"fmt"
-	"os"
+// import (
+// 	"context"
+// 	"encoding/csv"
+// 	"fmt"
+// 	"os"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awserr"
-	"github.com/aws/aws-sdk-go/aws/credentials"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/s3"
-	"github.com/aws/aws-sdk-go/service/s3/s3manager"
-	log "github.com/sirupsen/logrus"
+// 	"github.com/aws/aws-sdk-go/aws"
+// 	"github.com/aws/aws-sdk-go/aws/awserr"
+// 	"github.com/aws/aws-sdk-go/aws/credentials"
+// 	"github.com/aws/aws-sdk-go/aws/session"
+// 	"github.com/aws/aws-sdk-go/service/s3"
+// 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
+// 	log "github.com/sirupsen/logrus"
 
-	"github.com/sidkik/kelda-v1/pkg/errors"
-	// "github.com/sidkik/kelda-v1/scripts/make-license/config"
-)
+// 	"github.com/sidkik/kelda-v1/pkg/errors"
+// 	// "github.com/sidkik/kelda-v1/scripts/make-license/config"
+// )
 
-var csvHeader = []string{"customer", "time", "namespace", "event", "additional"}
+// var csvHeader = []string{"customer", "time", "namespace", "event", "additional"}
 
-type analyticsUpload struct {
-	customer   string
-	bucketName string
-	objectKey  string
-}
+// type analyticsUpload struct {
+// 	customer   string
+// 	bucketName string
+// 	objectKey  string
+// }
 
 func main() {
-	outPath := "combined-analytics.csv"
+	// outPath := "combined-analytics.csv"
 	// if err := downloadAnalytics(outPath); err != nil {
 	// 	fmt.Fprintf(os.Stderr, "Failed to write analytics: %s", err)
 	// }

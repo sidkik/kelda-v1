@@ -8,7 +8,7 @@ require (
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/sprig v2.22.0+incompatible // indirect
 	github.com/Microsoft/go-winio v0.4.12 // indirect
-	github.com/aws/aws-sdk-go v1.19.48
+	github.com/aws/aws-sdk-go v1.19.48 // indirect
 	github.com/buger/goterm v0.0.0-20181115115552-c206103e1f37
 	github.com/chai2010/gettext-go v0.0.0-20170215093142-bf70f2a70fb1 // indirect
 	github.com/cyphar/filepath-securejoin v0.2.2 // indirect
@@ -17,7 +17,7 @@ require (
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.4.0 // indirect
 	github.com/docker/libtrust v0.0.0-20160708172513-aabc10ec26b7 // indirect
-	github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c // indirect
+	github.com/docker/spdystream v0.1.0 // indirect
 	github.com/emicklei/go-restful v2.11.1+incompatible // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/ghodss/yaml v1.0.1-0.20190212211648-25d852aebe32
@@ -43,6 +43,7 @@ require (
 	github.com/mitchellh/copystructure v1.0.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/mitchellh/reflectwalk v1.0.1 // indirect
+	github.com/moby/spdystream v0.2.0 // indirect
 	github.com/morikuni/aec v1.0.0 // indirect
 	github.com/nsf/termbox-go v0.0.0-20190325093121-288510b9734e // indirect
 	github.com/opencontainers/image-spec v1.0.1 // indirect
@@ -63,6 +64,7 @@ require (
 	k8s.io/apimachinery v0.0.0-20190913080033-27d36303b655
 	k8s.io/cli-runtime v0.0.0-20190918162238-f783a3654da8
 	k8s.io/client-go v0.0.0-20190918160344-1fbdaa4c8d90
+	k8s.io/code-generator v0.0.0-20190912054826-cd179ad6a269
 	k8s.io/helm v2.14.3+incompatible
 	k8s.io/kubectl v0.0.0-20190918164019-21692a0861df
 	k8s.io/utils v0.0.0-20191114200735-6ca3b61696b6 // indirect

@@ -212,7 +212,6 @@ func ParseWorkspace(syncLogger *logrus.Logger, cfgPath string, ns string) (Works
 
 		services = append(services, subServices...)
 	}
-
 	config.Services = services
 	if err := config.lint(); err != nil {
 		return Workspace{}, err
