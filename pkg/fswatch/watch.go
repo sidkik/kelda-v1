@@ -6,10 +6,12 @@ import (
 	"path/filepath"
 	"strings"
 
+	// "github.com/kelda-inc/fsnotify"
+
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/afero"
 
-	"github.com/kelda-inc/fsnotify"
+	"github.com/fsnotify/fsnotify"
 	"github.com/sidkik/kelda-v1/pkg/errors"
 	"github.com/sidkik/kelda-v1/pkg/proto/dev"
 	"github.com/sidkik/kelda-v1/pkg/sync"
@@ -58,6 +60,7 @@ func combineUpdates(updates <-chan fsnotify.Event) chan struct{} {
 			}
 		}
 	}()
+
 	return combined
 }
 
